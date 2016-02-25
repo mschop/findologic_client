@@ -1,0 +1,15 @@
+{
+  "name": "mschop/findologic_php_client",
+  "license": "MIT",
+  "require": {
+    "guzzlehttp/guzzle": "~5.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Visitmedia\\FindologicClient\\": "src"
+    }
+  }
+}
