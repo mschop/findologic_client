@@ -1,69 +1,33 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: m.schophaus
+ * Date: 10.03.2016
+ * Time: 22:31
+ */
 
 namespace Visitmedia\FindologicClient;
 
 
-class FilterItem
+interface FilterItem
 {
-    private $name;
-    private $display;
-    private $weight;
-    private $image;
-    private $frequency;
-    private $items;
-
-    /**
-     * FilterItem constructor.
-     * @param string $name
-     * @param float $weight
-     * @param int $frequency
-     * @param array-of-FilterItem $items
-     */
-    public function __construct($name, $display, $weight, $frequency, $image, array $items)
-    {
-        if(!is_int($frequency)) {
-            throw new \InvalidArgumentException('frequency has to be int');
-        }
-
-        $this->name = $name;
-        $this->display = $display;
-        $this->weight = $weight;
-        $this->frequency = $frequency;
-        $this->image = $image;
-        $this->items = $items;
-    }
-
     /**
      * @return string
      */
-    public function getName()
-    {
-        return $this->name;
-    }
+    public function getName();
 
     /**
      * @return float
      */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
+    public function getWeight();
 
     /**
      * @return int
      */
-    public function getFrequency()
-    {
-        return $this->frequency;
-    }
+    public function getFrequency();
 
     /**
      * @return array
      */
-    public function getItems()
-    {
-        return $this->items;
-    }
-
+    public function getItems();
 }
