@@ -29,7 +29,7 @@ class FindologicClient
     public function isAlive()
     {
         $response = $this->client->get($this->createRequestUrl(static::ACTION_ISALIVE) . '?shopkey=' . $this->shopKey);
-        return $response->getBody() === 'alive';
+        return (string)$response->getBody() === 'alive';
     }
 
     /**
