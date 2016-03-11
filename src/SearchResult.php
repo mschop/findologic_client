@@ -97,7 +97,17 @@ class SearchResult implements ISearchResult
     {
         $filters = [];
         foreach($this->raw->filters->filter as $rawFilter) {
-            $filters[] = new DefaultFilter((string)$rawFilter->name, (string)$rawFilter->type, (string)$rawFilter->display, (string)$rawFilter->select, $this->getItems($rawFilter));
+            $attributes = isset($rawFilter->attributes)
+                ? SimpleXMLElementConverter::lossyToArray($rawFilter->attributes)['attributes']
+                : [];
+            $filters[] = new DefaultFilter(
+                (string)$rawFilter->name,
+                (string)$rawFilter->type,
+                (string)$rawFilter->display,
+                (string)$rawFilter->select,
+                $this->getItems($rawFilter),
+                $attributes
+            );
         }
         return $filters;
     }

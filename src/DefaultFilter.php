@@ -11,19 +11,18 @@ class DefaultFilter implements Filter
     private $display;
     private $select;
     private $items;
+    private $attributes;
 
-    public function __construct($name, $type, $display, $select, array $items)
+    public function __construct($name, $type, $display, $select, array $items, array $attributes = [])
     {
         $this->name = $name;
         $this->type = $type;
         $this->display = $display;
         $this->select = $select;
         $this->items = $items;
+        $this->attributes = $attributes;
     }
 
-    /**
-     * @return mixed
-     */
     public function getName()
     {
         return $this->name;
@@ -34,28 +33,24 @@ class DefaultFilter implements Filter
         return $this->getType();
     }
 
-    /**
-     * @return mixed
-     */
     public function getDisplay()
     {
         return $this->display;
     }
 
-    /**
-     * @return mixed
-     */
     public function getSelect()
     {
         return $this->select;
     }
 
-    /**
-     * @return array-of-FilterItem
-     */
     public function getItems()
     {
         return $this->items;
+    }
+
+    public function getAttributes()
+    {
+        return $this->attributes;
     }
 
 }
