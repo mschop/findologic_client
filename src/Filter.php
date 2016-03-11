@@ -11,6 +11,11 @@ interface Filter
     public function getName();
 
     /**
+     * @return string
+     */
+    public function getType();
+
+    /**
      * @return mixed
      */
     public function getDisplay();

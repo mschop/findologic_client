@@ -97,7 +97,7 @@ class SearchResult implements ISearchResult
     {
         $filters = [];
         foreach($this->raw->filters->filter as $rawFilter) {
-            $filters[] = new DefaultFilter((string)$rawFilter->name, (string)$rawFilter->display, (string)$rawFilter->select, $this->getItems($rawFilter));
+            $filters[] = new DefaultFilter((string)$rawFilter->name, (string)$rawFilter->type, (string)$rawFilter->display, (string)$rawFilter->select, $this->getItems($rawFilter));
         }
         return $filters;
     }
