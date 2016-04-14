@@ -104,6 +104,8 @@ class SearchResultTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(1, $items);
         $this->assertCount(1, $filters[0]->getItems()[0]->getItems());
         $this->assertEquals('Unteruntergruppe', $filters[0]->getItems()[0]->getItems()[0]->getName());
+
+        $this->assertEquals('10', $filters[2]->getAttributes()['selectedRange']['min']);
     }
 
 }

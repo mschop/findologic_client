@@ -29,4 +29,9 @@ interface Filter
      * @return array-of-FilterItem
      */
     public function getItems();
+
+    /**
+     * @return array
+     */
+    public function getAttributes();
 }

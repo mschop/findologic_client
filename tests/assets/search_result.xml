@@ -68,6 +68,18 @@
             <name>price</name>
             <display>Preis</display>
             <type>range-slider</type>
+            <attributes>
+                <selectedRange>
+                    <min>10</min>
+                    <max>20</max>
+                </selectedRange>
+                <totalRange>
+                    <min>10</min>
+                    <max>20</max>
+                </totalRange>
+                <stepSize>0.1</stepSize>
+                <unit>€</unit>
+            </attributes>
             <items>
                 <item>
                     <name>1.23 - 6.66</name>
