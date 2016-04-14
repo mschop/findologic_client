@@ -30,7 +30,7 @@ class DefaultFilter implements Filter
 
     public function getType()
     {
-        return $this->getType();
+        return $this->type;
     }
 
     public function getDisplay()
