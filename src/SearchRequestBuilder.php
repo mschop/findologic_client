@@ -87,7 +87,16 @@ class SearchRequestBuilder
 
     public function setOrder($order)
     {
-        $allowedOrders = [
+        $allowedOrders = static::getAllOrderTypes();
+        if(!in_array($order, $allowedOrders)) {
+            throw new InvalidArgumentException('Invalid order. See constants ORDER_');
+        }
+        $this->order = $order;
+    }
+
+    public static function getAllOrderTypes()
+    {
+        return [
             static::ORDER_FINDOLOGIC,
             static::ORDER_PRICE_ASC,
             static::ORDER_PRICE_DESC,
@@ -98,10 +107,6 @@ class SearchRequestBuilder
             static::ORDER_DATE_ADDED_ASC,
             static::ORDER_DATE_ADDED_DESC,
         ];
-        if(!in_array($order, $allowedOrders)) {
-            throw new InvalidArgumentException('Invalid order. See constants ORDER_');
-        }
-        $this->order = $order;
     }
 
     public function addProperty($name) {
