@@ -12,7 +12,6 @@ class DefaultFilterItem implements FilterItem
     private $image;
     private $frequency;
     private $items;
-    private $isActive;
 
     /**
      * FilterItem constructor.
@@ -21,7 +20,7 @@ class DefaultFilterItem implements FilterItem
      * @param int $frequency
      * @param array-of-FilterItem $items
      */
-    public function __construct($name, $display, $weight, $frequency, $image, $isActive, array $items)
+    public function __construct($name, $display, $weight, $frequency, $image, array $items)
     {
         if(!is_int($frequency)) {
             throw new \InvalidArgumentException('frequency has to be int');
@@ -33,7 +32,6 @@ class DefaultFilterItem implements FilterItem
         $this->frequency = $frequency;
         $this->image = $image;
         $this->items = $items;
-        $this->isActive = $isActive;
     }
 
     /**
