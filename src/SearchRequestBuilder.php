@@ -68,10 +68,7 @@ class SearchRequestBuilder
      */
     public function setFixedAttribute($name, $value)
     {
-        if(!isset($this->attrib[$name])) {
-            $this->attrib[$name] = [];
-        }
-        $this->attrib[$name][] = $value;
+        $this->attrib[$name] = $value;
     }
 
     /**
