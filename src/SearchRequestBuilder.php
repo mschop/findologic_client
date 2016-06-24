@@ -66,7 +66,7 @@ class SearchRequestBuilder
      * @param $name string
      * @param $value string
      */
-    public function setFixedAttribute($name, $value)
+    public function setFixedAttribute($name, array $value)
     {
         $this->attrib[$name] = $value;
     }
