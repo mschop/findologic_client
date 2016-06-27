@@ -55,8 +55,8 @@ class SearchRequestTest extends PHPUnit_Framework_TestCase
             'Color' => ['Red', 'Blue']
         ];
         $diff = array_diff_key($parsedQuery['attrib'], $expected);
-        $this->assertEmpty($diff);
-        $this->assertEmpty(array_diff_assoc($parsedQuery['attrib']['Color'], $expected['Color']));
+        $this->assertCount(0, $diff);
+        $this->assertCount(0, array_diff_assoc($parsedQuery['attrib']['Color'], $expected['Color']));
     }
 
     public function test_setQuery()

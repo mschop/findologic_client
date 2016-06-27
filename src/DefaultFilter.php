@@ -20,7 +20,7 @@ class DefaultFilter implements Filter
         $this->display = $display;
         $this->select = $select;
         $this->items = $items;
-        $this->attributes = $attributes;
+        $this->attributes = $type === 'range-slider' ? $this->prepareRangeSliderAttributes($attributes) : $attributes;
     }
 
     public function getName()
@@ -51,6 +51,38 @@ class DefaultFilter implements Filter
     public function getAttributes()
     {
         return $this->attributes;
+    }
+
+    /**
+     * @param array $attributes
+     * @return array
+     */
+    private function prepareRangeSliderAttributes(array $attributes)
+    {
+        $attributes['totalRange']['min'] = $this->getRoundedMin($attributes['stepSize'], $attributes['totalRange']['min']);
+        $attributes['totalRange']['max'] = $this->getRoundedMax($attributes['stepSize'], $attributes['totalRange']['max']);
+        return $attributes;
+    }
+
+    private function getRoundedMin($stepSize, $min)
+    {
+        $factor = $this->getAfterCommaFactor($stepSize);
+        return floor($min * $factor) / $factor;
+    }
+
+    private function getRoundedMax($stepSize, $max)
+    {
+        $factor = $this->getAfterCommaFactor($stepSize);
+        return ceil($max * $factor) / $factor;
+    }
+
+    private function getAfterCommaFactor($stepSize)
+    {
+        if(!strstr($stepSize, '.')) {
+            return 1;
+        }
+        $splitted = explode('.', $stepSize);
+        return pow(10, strlen($splitted[1]));
     }
 
 }
