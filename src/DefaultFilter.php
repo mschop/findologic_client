@@ -59,6 +59,8 @@ class DefaultFilter implements Filter
      */
     private function prepareRangeSliderAttributes(array $attributes)
     {
+        $attributes['selectedRange']['min'] = $this->getRoundedMin($attributes['stepSize'], $attributes['selectedRange']['min']);
+        $attributes['selectedRange']['max'] = $this->getRoundedMin($attributes['stepSize'], $attributes['selectedRange']['max']);
         $attributes['totalRange']['min'] = $this->getRoundedMin($attributes['stepSize'], $attributes['totalRange']['min']);
         $attributes['totalRange']['max'] = $this->getRoundedMax($attributes['stepSize'], $attributes['totalRange']['max']);
         return $attributes;
