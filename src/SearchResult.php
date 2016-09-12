@@ -120,7 +120,7 @@ class SearchResult implements ISearchResult
                 $name = (string)$rawItem->name;
                 $display = isset($rawItem->display) ? (string)$rawItem->display : 'default';
                 $weight = floatval($rawItem->weight);
-                $frequency = intval($rawItem->frequency);
+                $frequency = $rawItem->frequency;
                 $image = isset($rawItem->image) ? (string)$rawItem->image : '';
                 $items[] = new DefaultFilterItem($name, $display, $weight, $frequency, $image, $this->getItems($rawItem));
             }

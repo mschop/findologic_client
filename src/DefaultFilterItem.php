@@ -22,9 +22,6 @@ class DefaultFilterItem implements FilterItem
      */
     public function __construct($name, $display, $weight, $frequency, $image, array $items)
     {
-        if(!is_int($frequency)) {
-            throw new \InvalidArgumentException('frequency has to be int');
-        }
 
         $this->name = $name;
         $this->display = $display;
