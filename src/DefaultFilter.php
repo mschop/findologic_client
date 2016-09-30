@@ -10,15 +10,17 @@ class DefaultFilter implements Filter
     private $type;
     private $display;
     private $select;
+    private $class;
     private $items;
     private $attributes;
 
-    public function __construct($name, $type, $display, $select, array $items, array $attributes = [])
+    public function __construct($name, $type, $display, $select, $class, array $items, array $attributes = [])
     {
         $this->name = $name;
         $this->type = $type;
         $this->display = $display;
         $this->select = $select;
+        $this->class = $class;
         $this->items = $items;
         $this->attributes = $type === 'range-slider' ? $this->prepareRangeSliderAttributes($attributes) : $attributes;
     }
@@ -43,6 +45,11 @@ class DefaultFilter implements Filter
         return $this->select;
     }
 
+    public function getClass()
+    {
+        return $this->class;
+    }
+
     public function getItems()
     {
         return $this->items;
@@ -52,6 +59,7 @@ class DefaultFilter implements Filter
     {
         return $this->attributes;
     }
+
 
     /**
      * @param array $attributes
