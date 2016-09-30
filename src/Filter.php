@@ -26,6 +26,11 @@ interface Filter
     public function getSelect();
 
     /**
+     * @return string
+     */
+    public function getClass();
+
+    /**
      * @return array-of-FilterItem
      */
     public function getItems();

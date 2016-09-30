@@ -105,6 +105,7 @@ class SearchResult implements ISearchResult
                 (string)$rawFilter->type,
                 (string)$rawFilter->display,
                 (string)$rawFilter->select,
+                isset($rawFilter->class) ? (string)$rawFilter->class : '',
                 $this->getItems($rawFilter),
                 $attributes
             );
