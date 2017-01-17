@@ -49,7 +49,7 @@ class SearchRequestBuilder
 
     public function getQueryString()
     {
-        return http_build_query(get_object_vars($this));
+        return http_build_query(get_object_vars($this), null, '&');
     }
 
     /**
