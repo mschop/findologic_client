@@ -101,5 +101,30 @@
                 </item>
             </items>
         </filter>
+        <filter>
+            <name>Farbe</name>
+            <display>Farbe Display</display>
+            <select>multiselect</select>
+            <selectedItems>0</selectedItems>
+            <type>color</type>
+            <items>
+                <item>
+                    <name>braun</name>
+                    <weight>0.41</weight>
+                    <image>/bilder/flcolors/braun.png</image>
+                    <color>#bd5622</color>
+                </item>
+                <item>
+                    <name>lila</name>
+                    <weight>0.1666</weight>
+                    <color>#BA55D3</color>
+                </item>
+                <item>
+                    <name>gruen</name>
+                    <weight>0.1666</weight>
+                    <image>/bilder/flcolors/gruen.png</image>
+                </item>
+            </items>
+        </filter>
     </filters>
 </searchResult>

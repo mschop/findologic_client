@@ -12,6 +12,7 @@ class DefaultFilterItem implements FilterItem
     private $image;
     private $frequency;
     private $items;
+    private $color;
 
     /**
      * FilterItem constructor.
@@ -20,7 +21,7 @@ class DefaultFilterItem implements FilterItem
      * @param int $frequency
      * @param array-of-FilterItem $items
      */
-    public function __construct($name, $display, $weight, $frequency, $image, array $items)
+    public function __construct($name, $display, $weight, $frequency, $image, $color, array $items)
     {
 
         $this->name = $name;
@@ -29,6 +30,7 @@ class DefaultFilterItem implements FilterItem
         $this->frequency = $frequency;
         $this->image = $image;
         $this->items = $items;
+        $this->color = $color;
     }
 
     /**
@@ -62,5 +64,23 @@ class DefaultFilterItem implements FilterItem
     {
         return $this->items;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /*
+     * @inheritdoc
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+
 
 }

@@ -96,7 +96,7 @@ class SearchResultTest extends \PHPUnit_Framework_TestCase
     {
         $searchResult = $this->getSearchResult();
         $filters = $searchResult->getFilters();
-        $this->assertCount(3, $filters);
+        $this->assertCount(4, $filters);
         $this->assertEquals('cat', $filters[0]->getName());
         $this->assertEquals('Kategorie', $filters[0]->getDisplay());
         $this->assertEquals('multiple', $filters[0]->getSelect());
@@ -106,6 +106,33 @@ class SearchResultTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Unteruntergruppe', $filters[0]->getItems()[0]->getItems()[0]->getName());
 
         $this->assertEquals('10', $filters[2]->getAttributes()['selectedRange']['min']);
+    }
+
+    public function test_colorAndImageFilter()
+    {
+        $searchResult = $this->getSearchResult();
+        $filters = $searchResult->getFilters();
+        /** @var Filter $colorFilter */
+        $colorFilter = $filters[3];
+
+        $this->assertEquals('Farbe', $colorFilter->getName());
+        $this->assertEquals('Farbe Display', $colorFilter->getDisplay());
+
+        /** @var Filter $items */
+        $items = $colorFilter->getItems();
+        /** @var FilterItem $item */
+        $item = $items[0];
+        $this->assertEquals('braun', $item->getName());
+        $this->assertEquals('/bilder/flcolors/braun.png', $item->getImage());
+        $this->assertEquals('#bd5622', $item->getColor());
+        $item = $items[1];
+        $this->assertEquals('lila', $item->getName());
+        $this->assertNull($item->getImage());
+        $this->assertEquals('#BA55D3', $item->getColor());
+        $item = $items[2];
+        $this->assertEquals('gruen', $item->getName());
+        $this->assertNull($item->getColor());
+        $this->assertEquals('/bilder/flcolors/gruen.png', $item->getImage());
     }
 
 }
