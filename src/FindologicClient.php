@@ -28,7 +28,11 @@ class FindologicClient
      */
     public function isAlive()
     {
-        $response = $this->client->get($this->createRequestUrl(static::ACTION_ISALIVE) . '?shopkey=' . $this->shopKey);
+        $response = $this->client->request(
+            'GET',
+            $this->createRequestUrl(static::ACTION_ISALIVE) . '?shopkey=' . $this->shopKey,
+            ['connect_timeout' => 1.0]
+        );
         return (string)$response->getBody() === 'alive';
     }
 
@@ -40,7 +44,7 @@ class FindologicClient
     public function sendSearchRequest(SearchRequest $searchRequest)
     {
         $requestUrl = $this->createRequestUrl(static::ACTION_SEARCH) . '?' . $searchRequest->getQuery();
-        $response = $this->client->get($requestUrl);
+        $response = $this->client->request('GET', $requestUrl, ['connect_timeout' => 3.0]);
         return new SearchResult($response->getBody());
     }
 
